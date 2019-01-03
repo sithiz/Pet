@@ -13,10 +13,18 @@ class petToma {
 
 let pet = new petToma 
 
-console.log(pet.hunger,pet.age,pet.name,pet.sleepiness,pet.boredom)
+
+
+
+
 
 let feed = function(){
 	pet.hunger = 0
+	$('img').after('<img src="gizmo_food.jpg" class="food">')
+	window.setTimeout(function(){
+		$('.food').remove()
+	}, 5000)
+
 }
 let play = function(){
 	pet.sleepiness = 0
@@ -24,10 +32,15 @@ let play = function(){
 let light = function(){
 	pet.sleepiness = 0 
 	$('.gizmo').hide(5000)
+	window.setTimeout(function(){
+		$('.gizmo').show(5000)
+		alert('gizmo is awake')
+	}, 15000)
+
 }
 
-$('#play').click(light)
-
+$('#light').click(light)
+$('#feed').click(feed)
 
 
 

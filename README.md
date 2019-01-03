@@ -27,3 +27,5 @@ Have your tomagotchi give birth to baby tomagotchi...
 ...with special powers (extend the class)!
 Add an excercise() method to your tomagotchi, that affects certain properties
 Add anything you can think of... use your imagination!
+
+https://github.com/sithiz/Pet
