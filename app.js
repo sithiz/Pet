@@ -37,6 +37,10 @@ let light = function() {
     }, 15000)
     $('.sleep').replaceWith('<li class="sleep"> sleepiness ' + pet.sleepiness + '</li>')
 }
+let death = function(){
+	$('.pet').replaceWith('<img src="./death.jpg">')
+        $('.title').replaceWith('<h1>YOUR PET IS DEAD YOU FAILED HIM</h1>')
+}
 let interval = function() {
     pet.age += 1
     $('.age').replaceWith('<li class="age"> age ' + pet.age + '</li>')
@@ -47,18 +51,21 @@ let interval = function() {
     pet.boredom += 1
     $('.bored').replaceWith('<li class="bored"> boredom ' + pet.boredom + '</li>')
     if (pet.hunger >= 10) {
-        console.log('pet dead')
+        death()
+        clearInterval(intervalId)
     } else if (pet.sleepiness >= 10) {
-        console.log('pet dead')
+        death()
+        clearInterval(intervalId)
     } else if (pet.boredom >= 10) {
-        console.log('pet dead')
+        death()
+        clearInterval(intervalId)
     } else {
-        console.log('pet alive')
+        
     }
 }
 
 
-setInterval(interval, 2000)
+let intervalId = setInterval(interval, 2000)
 
 
 
