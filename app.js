@@ -8,14 +8,14 @@ class petToma {
 
     }
 }
-
+const timeOut = 50
 let pet = new petToma
 //feed function and reset hunger in pet 
 let feed = function() {
     $('.pet').after('<img src="./gizmo_food.jpg" class="food">')
     setTimeout(function() {
         $('.food').remove()
-    }, 5000)
+    }, timeOut)
     pet.hunger = 0
     $('.hunger').replaceWith('<li class="hunger"> hunger ' + pet.hunger + '</li>')
 
@@ -25,7 +25,7 @@ let play = function() {
     $('.pet').before('<img src="./toy.png" class="toy">')
     setTimeout(function() {
         $('.toy').remove()
-    }, 5000)
+    }, timeOut)
     pet.boredom = 0
     $('.bored').replaceWith('<li class="bored"> boredom ' + pet.boredom + '</li>')
 }
@@ -79,7 +79,7 @@ let interval = function() {
 }
 //v the intervel section and interval id assignment
 
-let intervalId = setInterval(interval, 3000)
+let intervalId = setInterval(interval, timeOut)
 
 
 
