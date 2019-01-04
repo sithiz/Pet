@@ -13,33 +13,36 @@ let pet = new petToma
 
 let feed = function() {
     $('img').after('<img src="./gizmo_food.jpg" class="food">')
-    window.setTimeout(function() {
+    setTimeout(function() {
         $('.food').remove()
     }, 5000)
     pet.hunger = 0
+    $('.hunger').replaceWith('<li class="hunger"> hunger ' + pet.hunger + '</li>')
 
 }
 let play = function() {
     $('img').before('<img src="./toy.jpeg" class="toy">')
-    window.setTimeout(function() {
+    setTimeout(function() {
         $('.toy').remove()
     }, 5000)
     pet.boredom = 0
+    $('.bored').replaceWith('<li class="bored"> boredom ' + pet.boredom + '</li>')
 }
 let light = function() {
     pet.sleepiness = 0
     $('.gizmo').hide(5000)
-    window.setTimeout(function() {
+    setTimeout(function() {
         $('.gizmo').show(5000)
         alert('gizmo is awake')
     }, 15000)
-
+    $('.sleep').replaceWith('<li class="sleep"> sleepiness ' + pet.sleepiness + '</li>')
 }
+
 
 $('#light').click(light)
 $('#feed').click(feed)
 $('#play').click(play)
-$('#stats').append('<li> age '+pet.age+'</li><li> hunger ' +pet.hunger+'</li><li> boredom '+pet.boredom+'</li><li> sleepiness '+pet.sleepiness+'</li>')
+$('#stats').append('<li class="age"> age ' + pet.age + '</li><li class="hunger"> hunger ' + pet.hunger + '</li><li class="bored"> boredom ' + pet.boredom + '</li><li class="sleep"> sleepiness ' + pet.sleepiness + '</li>')
 
 
 
