@@ -37,16 +37,36 @@ let light = function() {
     }, 15000)
     $('.sleep').replaceWith('<li class="sleep"> sleepiness ' + pet.sleepiness + '</li>')
 }
+let interval = function() {
+    pet.age += 1
+    $('.age').replaceWith('<li class="age"> age ' + pet.age + '</li>')
+    pet.hunger += 1
+    $('.hunger').replaceWith('<li class="hunger"> hunger ' + pet.hunger + '</li>')
+    pet.sleepiness += 1
+    $('.sleep').replaceWith('<li class="sleep"> sleepiness ' + pet.sleepiness + '</li>')
+    pet.boredom += 1
+    $('.bored').replaceWith('<li class="bored"> boredom ' + pet.boredom + '</li>')
+    if (pet.hunger >= 10) {
+        console.log('pet dead')
+    } else if (pet.sleepiness >= 10) {
+        console.log('pet dead')
+    } else if (pet.boredom >= 10) {
+        console.log('pet dead')
+    } else {
+        console.log('pet alive')
+    }
+}
+
+
+setInterval(interval, 2000)
+
+
+
+
+
 
 
 $('#light').click(light)
 $('#feed').click(feed)
 $('#play').click(play)
 $('#stats').append('<li class="age"> age ' + pet.age + '</li><li class="hunger"> hunger ' + pet.hunger + '</li><li class="bored"> boredom ' + pet.boredom + '</li><li class="sleep"> sleepiness ' + pet.sleepiness + '</li>')
-
-
-
-
-
-
-
