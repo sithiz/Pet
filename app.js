@@ -30,20 +30,25 @@ let play = function() {
 }
 let light = function() {
     pet.sleepiness = 0
-    $('.gizmo').hide(5000)
+    $('.gizmo').hide(1000)
     setTimeout(function() {
-        $('.gizmo').show(5000)
+        $('.gizmo').show(1000)
         alert('gizmo is awake')
-    }, 15000)
+    }, 1000)
     $('.sleep').replaceWith('<li class="sleep"> sleepiness ' + pet.sleepiness + '</li>')
 }
-let death = function(){
-	$('.pet').replaceWith('<img src="./death.jpg">')
-        $('.title').replaceWith('<h1>YOUR PET IS DEAD YOU FAILED HIM</h1>')
+let death = function() {
+    $('.pet').replaceWith('<img src="./death.jpg">')
+    $('.title').replaceWith('<h1>YOUR PET IS DEAD YOU FAILED HIM</h1>')
 }
 let interval = function() {
     pet.age += 1
     $('.age').replaceWith('<li class="age"> age ' + pet.age + '</li>')
+    if (pet.age === 10) {
+        $('.pet').replaceWith('<img src="./age10.png" class="pet">')
+    } else if(pet.age ===20){
+    	$('.pet').replaceWith('<img src="./age20.png" class="pet">')
+    }
     pet.hunger += 1
     $('.hunger').replaceWith('<li class="hunger"> hunger ' + pet.hunger + '</li>')
     pet.sleepiness += 1
@@ -60,12 +65,12 @@ let interval = function() {
         death()
         clearInterval(intervalId)
     } else {
-        
+
     }
 }
 
 
-let intervalId = setInterval(interval, 2000)
+let intervalId = setInterval(interval, 3000)
 
 
 
@@ -77,3 +82,12 @@ $('#light').click(light)
 $('#feed').click(feed)
 $('#play').click(play)
 $('#stats').append('<li class="age"> age ' + pet.age + '</li><li class="hunger"> hunger ' + pet.hunger + '</li><li class="bored"> boredom ' + pet.boredom + '</li><li class="sleep"> sleepiness ' + pet.sleepiness + '</li>')
+
+
+
+
+
+
+
+
+
